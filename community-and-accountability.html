@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community and Accountability</title>
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        form {
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #commitments {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            border-left: 5px solid #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Community and Accountability</h1>
+        
+        <!-- Form to submit commitments -->
+        <form id="commitForm">
+            <label for="commitmentInput">Enter your commitment:</label><br>
+            <input type="text" id="commitmentInput" name="commitmentInput" required><br>
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Display area for commitments -->
+        <div id="commitments">
+            <h2>Commitments:</h2>
+            <ul id="commitmentList"></ul>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            document.getElementById('commitForm').addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent form submission
+
+                
+                var commitmentText = document.getElementById('commitmentInput').value;
+
+               
+                var listItem = document.createElement('li');
+                listItem.textContent = commitmentText;
+
+                
+                document.getElementById('commitmentList').appendChild(listItem);
+
+               
+                document.getElementById('commitmentInput').value = '';
+            });
+        });
+    </script>
+</body>
+</html>
