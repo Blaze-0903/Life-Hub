@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #2a5a8a;
+        }
+
+        #habitList, #addHabit {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #2a5a8a;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Habit Tracker</h1>
+
+    <div id="habitList">
+        <h2>Your Habits</h2>
+        <ul id="habits"></ul>
+    </div>
+
+    <div id="addHabit">
+        <h2>Add a New Habit</h2>
+        <label for="habitName">Habit Name:</label>
+        <input type="text" id="habitName">
+        <button onclick="addHabit()">Add Habit</button>
+    </div>
+
+    <script>
+        function addHabit() {
+            var habitName = document.getElementById('habitName').value;
+
+            var habitsList = document.getElementById('habits');
+            var listItem = document.createElement('li');
+            listItem.textContent = habitName;
+            habitsList.appendChild(listItem);
+
+            // Clear input field
+            document.getElementById('habitName').value = '';
+        }
+    </script>
+</body>
+</html>
