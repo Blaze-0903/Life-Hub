@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education and Learning Tracker</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    color: #2a5a8a;
+}
+
+#courseList, #addCourse {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #2a5a8a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+</style>
+
+</head>
+<body>
+    <h1>Education and Learning Tracker</h1>
+
+    <div id="courseList">
+        <h2>Your Courses</h2>
+        <ul id="courses"></ul>
+    </div>
+
+    <div id="addCourse">
+        <h2>Add a New Course</h2>
+        <label for="courseName">Course Name:</label>
+        <input type="text" id="courseName">
+        <label for="courseStatus">Completion Status:</label>
+        <select id="courseStatus">
+            <option value="Not Started">Not Started</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+        </select>
+        <button onclick="addCourse()">Add Course</button>
+    </div>
+
+    <script>
+      function addCourse() {
+    var courseName = document.getElementById('courseName').value;
+    var courseStatus = document.getElementById('courseStatus').value;
+
+    var coursesList = document.getElementById('courses');
+    var listItem = document.createElement('li');
+    listItem.textContent = courseName + ' - ' + courseStatus;
+    coursesList.appendChild(listItem);
+
+    // Clear input fields
+    document.getElementById('courseName').value = '';
+    document.getElementById('courseStatus').value = 'Not Started';
+}
+
+
+</script>
+</body>
+</html>
