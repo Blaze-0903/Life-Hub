@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sleep Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+    }
+
+    .day {
+      position: relative;
+      padding: 10px;
+      background-color: #ddd;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .highlight {
+      background-color: #aaf;
+    }
+
+    .sleep-input {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 5px;
+      display: none;
+    }
+
+    .sleep-input input {
+      width: 100%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+    .day:hover .sleep-input {
+      display: block;
+    }
+
+    #sleep-output {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Monthly Sleep Tracker</h1>
+    <div id="calendar" class="calendar"></div>
+    <div id="sleep-output"></div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const calendar = document.getElementById("calendar");
+      let totalHours = 0;
+      let validDays = 0;
+
+      // Get the current month and year
+      const date = new Date();
+      const year = date.getFullYear();
+      const month = date.getMonth();
+
+      // Get the number of days in the month
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      // Display the calendar
+      for (let i = 1; i <= daysInMonth; i++) {
+        const day = document.createElement("div");
+        day.classList.add("day");
+        day.textContent = i;
+        calendar.appendChild(day);
+
+        const sleepInput = document.createElement("div");
+        sleepInput.classList.add("sleep-input");
+        sleepInput.innerHTML = `<input type="number" min="0" max="24" placeholder="Hours of sleep">`;
+        day.appendChild(sleepInput);
+
+        // Randomly add class 'highlight' to some days to represent sleep quality
+        if (Math.random() < 0.3) {
+          day.classList.add("highlight");
+        }
+      }
+
+      // Calculate the total hours of sleep and count the valid days
+      const sleepInputs = document.querySelectorAll(".sleep-input input");
+      sleepInputs.forEach(input => {
+        input.addEventListener("change", function() {
+          const hours = parseInt(this.value);
+          if (!isNaN(hours) && hours >= 0 && hours <= 24) {
+            totalHours += hours;
+            validDays++;
+          }
+          const averageHours = totalHours / validDays;
+          displaySleepOutput(averageHours);
+        });
+      });
+
+      // Function to display the sleep output based on average hours
+      function displaySleepOutput(averageHours) {
+        let output = "";
+        if (averageHours >= 3 && averageHours <= 5) {
+          output = "Six to Eight hours of sleep is enough. ";
+        } else if (averageHours > 5) {
+          output = "Excessive sleep";
+        } else if (averageHours < 6) {
+          output = "Less than six hours of sleep is not enough.";
+        }
+        document.getElementById("sleep-output").textContent = output;
+      }
+    });
+  </script>
+</body>
+</html>
