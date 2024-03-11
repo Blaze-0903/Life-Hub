@@ -5,17 +5,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Activity Tracker - LifeHub</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
+<style>
+    header {
+    background-color: #3498db;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 20px;
+    }
 
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f2f4f8;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 600px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #2770b8;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      font-size: 16px;
+      color: #495057;
+      margin-bottom: 10px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 14px;
+      width: calc(100% - 20px);
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      border: 1px solid #ced4da;
+      border-radius: 8px;
+    }
+
+    button {
+      padding: 12px;
+      font-size: 14px;
+      background-color: #2770b8;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2a5a8a;
+    }
+
+    #activity-log {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    h2 {
+      color: #343a40;
+      margin-top: 20px;
+    }
+
+    .steps {
+      margin-bottom: 20px;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .activity-list {
+      text-decoration: line-through;
+      color: #6c757d;
+    }
+
+    .steps button {
+      padding: 8px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .steps button:hover {
+      background-color: #e0e0e0;
+    }
+
+    /* Responsive design for mobile devices */
+    @media only screen and (max-width: 600px) {
+      body {
+        margin: 20px;
+      }
+
+      .container {
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+      }
+    }
+  </style>
 <body>
-    <header>
-        <h1>LifeHub</h1>
-        <p>An all-in-one platform for health, productivity, and personal development</p>
-    </header>
 
-    <section>
-        <h2>Activity Tracker</h2>
+    <div class="container">
+        <h1>Activity Tracker</h1>
         <div id="activity-form">
             <label for="steps">Steps Taken:</label>
             <input type="number" id="steps" placeholder="Enter steps">
@@ -25,7 +136,7 @@
             <h3>Activity Log</h3>
             <ul id="activity-list"></ul>
         </div>
-    </section>
+    </div>
 
     <script>
         function logActivity() {
