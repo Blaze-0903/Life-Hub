@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Mood Journal - LifeHub</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f2f4f8;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #2770b8;
+            margin-bottom: 20px;
+        }
+
+        #calendar {
+            margin-top: 20px;
+        }
+
+        #modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            z-index: 1000;
+        }
+
+        #modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 900;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="calendar"></div>
+    </div>
+
+    <div id="modal-overlay"></div>
+
+    <div id="modal">
+        <h2>Mood Journal</h2>
+        <label for="mood">Select your mood:</label>
+        <select id="mood">
+            <option value="happy">Happy</option>
+            <option value="sad">Sad</option>
+            <option value="excited">Excited</option>
+            <option value="calm">Calm</option>
+            <!-- Add more mood options as needed -->
+        </select>
+        <label for="optionalNotes">Optional Notes:</label>
+        <input type="text" id="optionalNotes" placeholder="Add optional notes">
+        <button onclick="logMood()">Log Mood</button>
+        <button onclick="closeModal()">Close</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const calendarEl = document.getElementById('calendar');
+            const modalEl = document.getElementById('modal');
+            const modalOverlayEl = document.getElementById('modal-overlay');
+    
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                dateClick: function (info) {
+                    const selectedDate = info.dateStr;
+                    openModal(selectedDate);
+                }
+            });
+    
+            calendar.render();
+    
+            function openModal(date) {
+                modalEl.style.display = 'block';
+                modalOverlayEl.style.display = 'block';
+    
+                // Pass the selected date to the modal (you can update the modal content based on the date)
+                // For simplicity, we're just logging the selected date in the console
+                console.log(`Selected Date: ${date}`);
+    
+                // Save the selected date for later use in the logMood function
+                modalEl.dataset.selectedDate = date;
+            }
+    
+            window.logMood = function () {
+                const moodSelect = document.getElementById('mood');
+                const optionalNotesInput = document.getElementById('optionalNotes');
+    
+                const selectedMood = moodSelect.value;
+                const optionalNotes = optionalNotesInput.value.trim();
+                const selectedDate = modalEl.dataset.selectedDate;
+    
+                if (selectedMood !== "" && selectedDate) {
+                    // Update the event on the calendar for the selected date
+                    calendar.addEvent({
+                        title: selectedMood,
+                        start: selectedDate,
+                        allDay: true,
+                        backgroundColor: getEventColor(selectedMood),
+                        notes: optionalNotes,
+                    });
+    
+                    // Close the modal after logging
+                    closeModal();
+                }
+            }
+    
+            // Helper function to determine the background color based on mood
+            function getEventColor(mood) {
+                switch (mood) {
+                    case 'happy':
+                        return '#5cb85c'; // Green
+                    case 'sad':
+                        return '#d9534f'; // Red
+                    case 'excited':
+                        return '#f0ad4e'; // Orange
+                    case 'calm':
+                        return '#5bc0de'; // Blue
+                    default:
+                        return '#000000'; // Black (default)
+                }
+            }
+    
+            function closeModal() {
+                modalEl.style.display = 'none';
+                modalOverlayEl.style.display = 'none';
+            }
+        });
+    </script>
+    
+    
+    
+    
+    
+    
+</body>
+
+</html>
