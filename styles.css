@@ -1,105 +1,107 @@
+/* styles.css */
+
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #f8f8f8;
     color: #333;
 }
 
 header {
-    background-color: #3498db;
-    color: #ecf0f1;
+    background-color: #2a5a8a; /* Green */
+    color: #fff;
     text-align: center;
     padding: 20px;
 }
 
-section {
-    background-color: #fff;
-    margin: 20px auto;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-}
-
-h1, h2 {
-    color: #bfdb34;
-}
-
-p {
-    color: #555;
-}
-
-#activity-tracker {
-    background-color: #3498db;
-    color: #ecf0f1;
-}
-
-#task-and-goal-manager {
-    background-color: #27ae60;
-    color: #ecf0f1;
-}
-
-#mood-journal {
-    background-color: #f39c12;
-    color: #ecf0f1;
-}
-
-#nutrition-and-meal-planner {
-    background-color: #e74c3c;
-    color: #ecf0f1;
-}
-
-#sleep-tracker {
-    background-color: #9b59b6;
-    color: #ecf0f1;
-}
-
-#habit-formation {
-    background-color: #2ecc71;
-    color: #ecf0f1;
-}
-
-#finance-tracker {
-    background-color: #f1c40f;
-    color: #ecf0f1;
-}
-
-#community-and-accountability {
-    background-color: #1abc9c;
-    color: #ecf0f1;
-}
-
-#education-and-learning-tracker {
-    background-color: #e67e22;
-    color: #ecf0f1;
-}
-
-/* Additional Styles for Enhanced Design */
-body {
-    line-height: 1.6;
-}
-
-header p {
-    font-size: 18px;
-}
-
-section {
-    box-sizing: border-box;
-}
-
 h1 {
+    margin: 0;
     font-size: 2.5em;
 }
 
-h2 {
-    font-size: 2em;
-    margin-bottom: 15px;
-}
-
 p {
-    font-size: 16px;
-    line-height: 1.5;
+    margin-top: 5px;
+    font-size: 1.2em;
 }
 
-/* Add more styles as needed */
+main {
+    text-align: center;
+}
+
+.section-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.feature {
+    background-color: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.feature:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+h2 {
+    color: #2a5a8a; /* Green */
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+    .feature {
+        width: calc(100% - 40px);
+    }
+}
+
+button {
+    background-color: #2a5a8a; /* Green */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: #2a5a8a;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+footer {
+    background-color: #2a5a8a; 
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
