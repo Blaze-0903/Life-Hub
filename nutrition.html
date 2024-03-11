@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutrition and Meal Planner</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .days {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .day-button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    background-color: #ccc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .day-content {
+    display: none;
+  }
+  
+  .day-content.active {
+    display: block;
+  }
+   </style>
+<body>
+  <div class="container">
+    <h1>Nutrition and Meal Planner</h1>
+    <div class="days">
+      <button class="day-button" data-day="Monday">Monday</button>
+      <button class="day-button" data-day="Tuesday">Tuesday</button>
+      <button class="day-button" data-day="Wednesday">Wednesday</button>
+      <button class="day-button" data-day="Thursday">Thursday</button>
+      <button class="day-button" data-day="Friday">Friday</button>
+      <button class="day-button" data-day="Saturday">Saturday</button>
+      <button class="day-button" data-day="Sunday">Sunday</button>
+    </div>
+    <div class="day-content" id="Monday">
+      <!-- Monday Content -->
+      <h2> <center>Monday</center></h2>
+      <div class="container">
+       
+        <div id="meal-planner">
+          <div class="day">
+            <ul>
+              <li>Breakfast: <span id="monday-breakfast"></span></li>
+              <input type="text" id="breakfast" placeholder="Enter breakfast">
+              <li>Lunch: <span id="monday-lunch"></span></li>
+              <input type="text" id="Lunch" placeholder="Enter Lunch">
+              <li>Dinner: <span id="monday-dinner"></span></li>
+              <input type="text" id="Dinner" placeholder="Enter Dinner">
+            </ul>
+          </div>
+          <!-- Repeat similar structure for other days -->
+      
+      </div>
+    </div>
+    </div>
+    <div class="day-content" id="Tuesday">
+      <!-- Tuesday Content -->
+      <h2><center>Tuesday</center></h2>
+      <div class="container">
+       
+        <div id="meal-planner">
+          <div class="day">
+            <ul>
+              <li>Breakfast: <span id="tuesday-breakfast"></span></li>
+              <input type="text" id="breakfast" placeholder="Enter breakfast">
+              <li>Lunch: <span id="tuesday-lunch"></span></li>
+              <input type="text" id="Lunch" placeholder="Enter Lunch">
+              <li>Dinner: <span id="tuesday-dinner"></span></li>
+              <input type="text" id="Dinner" placeholder="Enter Dinner">
+            </ul>
+          </div>
+          <!-- Repeat similar structure for other days -->
+      
+      </div>
+    </div>
+    </div>
+    
+
+    <div class="day-content" id="Wednesday">
+      <!-- Wednesday Content -->
+      <h2><center> Wednesday </center></h2>
+ 
+      <div class="container">
+       
+        <div id="meal-planner">
+          <div class="day">
+            <ul>
+              <li>Breakfast: <span id="wednesday-breakfast"></span></li>
+              <input type="text" id="breakfast" placeholder="Enter breakfast">
+              <li>Lunch: <span id="wednesday-lunch"></span></li>
+              <input type="text" id="Lunch" placeholder="Enter Lunch">
+              <li>Dinner: <span id="wednesday-dinner"></span></li>
+              <input type="text" id="Dinner" placeholder="Enter Dinner">
+            </ul>
+          </div>
+          <!-- Repeat similar structure for other days -->
+      
+      </div>
+    </div>
+    </div>
+
+    
+    <div class="day-content" id="Thursday">
+      <!-- Thursday Content -->
+      <h2><center>Thursday</center></h2>
+   
+      <div class="container">
+       
+        <div id="meal-planner">
+          <div class="day">
+            <ul>
+              <li>Breakfast: <span id="thursday-breakfast"></span></li>
+              <input type="text" id="breakfast" placeholder="Enter breakfast">
+              <li>Lunch: <span id="thursday-lunch"></span></li>
+              <input type="text" id="Lunch" placeholder="Enter Lunch">
+              <li>Dinner: <span id="thursday-dinner"></span></li>
+              <input type="text" id="Dinner" placeholder="Enter Dinner">
+            </ul>
+          </div>
+          <!-- Repeat similar structure for other days -->
+      
+      </div>
+    </div>
+    </div>
+   
+    <div class="day-content" id="Friday">
+        <!-- Sunday Content -->
+        <h2><center>Friday</center></h2>
+        <div class="container">
+         
+          <div id="meal-planner">
+            <div class="day">
+              <ul>
+                <li>Breakfast: <span id="friday-breakfast"></span></li>
+                <input type="text" id="breakfast" placeholder="Enter breakfast">
+                <li>Lunch: <span id="friday-lunch"></span></li>
+                <input type="text" id="Lunch" placeholder="Enter Lunch">
+                <li>Dinner: <span id="friday-dinner"></span></li>
+                <input type="text" id="Dinner" placeholder="Enter Dinner">
+              </ul>
+            </div>
+            <!-- Repeat similar structure for other days -->
+        
+        </div>
+      </div>
+      </div>
+    
+    <div class="day-content" id="Saturday">
+      <!-- Saturday Content -->
+      <h2><center>Saturday</center></h2>
+      <div class="container">
+       
+        <div id="meal-planner">
+          <div class="day">
+            <ul>
+              <li>Breakfast: <span id="saturday-breakfast"></span></li>
+              <input type="text" id="breakfast" placeholder="Enter breakfast">
+              <li>Lunch: <span id="saturday-lunch"></span></li>
+              <input type="text" id="Lunch" placeholder="Enter Lunch">
+              <li>Dinner: <span id="saturday-dinner"></span></li>
+              <input type="text" id="Dinner" placeholder="Enter Dinner">
+            </ul>
+          </div>
+          <!-- Repeat similar structure for other days -->
+      
+      </div>
+    </div>
+    </div>
+   
+    <div class="day-content" id="Sunday">
+      <!-- Sunday Content -->
+      <h2><center>Sunday</center></h2>
+      <div class="container">
+       
+        <div id="meal-planner">
+          <div class="day">
+            <ul>
+              <li>Breakfast: <span id="sunday-breakfast"></span></li>
+              <input type="text" id="breakfast" placeholder="Enter breakfast">
+              <li>Lunch: <span id="sunday-lunch"></span></li>
+              <input type="text" id="Lunch" placeholder="Enter Lunch">
+              <li>Dinner: <span id="sunday-dinner"></span></li>
+              <input type="text" id="Dinner" placeholder="Enter Dinner">
+            </ul>
+          </div>
+          <!-- Repeat similar structure for other days -->
+      
+      </div>
+    </div>
+    </div>
+    </div>
+    
+
+
+  <script> document.addEventListener("DOMContentLoaded", function() {
+    const dayButtons = document.querySelectorAll(".day-button");
+    const dayContents = document.querySelectorAll(".day-content");
+  
+    dayButtons.forEach(button => {
+      button.addEventListener("click", function() {
+        const selectedDay = this.getAttribute("data-day");
+        dayContents.forEach(content => {
+          content.classList.remove("active");
+          if (content.id === selectedDay) {
+            content.classList.add("active");
+          }
+        });
+      });
+    });
+  });
+  </script>
+</body>
+</html>
