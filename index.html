@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeHub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>LifeHub</h1>
+        <p>An all-in-one platform for health, productivity, and personal development</p>
+    </header>
+
+    <section id="activity-tracker" onclick="openSection('activity.html')">
+        <h2>Activity Tracker</h2>
+    </section>
+
+    <section id="task-and-goal-manager">
+        <h2>Task and Goal Manager</h2>
+        <!-- Add task and goal manager content here -->
+    </section>
+
+    <section id="mood-journal">
+        <h2>Mood Journal</h2>
+        <!-- Add mood journal content here -->
+    </section>
+
+    <section id="nutrition-and-meal-planner">
+        <h2>Nutrition and Meal Planner</h2>
+        <!-- Add nutrition and meal planner content here -->
+    </section>
+
+    <section id="sleep-tracker">
+        <h2>Sleep Tracker</h2>
+        <!-- Add sleep tracker content here -->
+    </section>
+
+    <section id="habit-formation">
+        <h2>Habit Formation</h2>
+        <!-- Add habit formation content here -->
+    </section>
+
+    <section id="finance-tracker">
+        <h2>Finance Tracker</h2>
+        <!-- Add finance tracker content here -->
+    </section>
+
+    <section id="community-and-accountability">
+        <h2>Community and Accountability</h2>
+        <!-- Add community and accountability content here -->
+    </section>
+
+    <section id="education-and-learning-tracker">
+        <h2>Education and Learning Tracker</h2>
+        <!-- Add education and learning tracker content here -->
+    </section>
+
+    <!-- Add your JavaScript scripts here -->
+
+    <script>
+
+        function openSection(page) {
+            window.location.href = page;
+        }
+
+        function logActivity() {
+            const stepsInput = document.getElementById('steps');
+            const activityList = document.getElementById('activity-list');
+
+            if (stepsInput.value !== "") {
+                const activityItem = document.createElement('li');
+                activityItem.textContent = `Steps: ${stepsInput.value}`;
+                activityList.appendChild(activityItem);
+                stepsInput.value = ""; // Clear the input field
+            }
+        }
+    </script>
+
+</body>
+
+</html>
